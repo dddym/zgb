@@ -35,7 +35,7 @@
         <javaTypeResolver>
             <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
             <property name="forceBigDecimals" value="false" />
-    </javaTypeResolver>
+        </javaTypeResolver>
 
         <!--生成 Model.java文件 -->
         <javaModelGenerator targetPackage="cn.zgbfour.zgb.entity"
@@ -63,12 +63,50 @@
         <!-- 待生成的数据库中的表名，生成一个表对应的Java和xml文件就需要配置这一段 -->
 
 
-       <!-- <table tableName="collect_document_rel" domainObjectName="CollectDocumentRel">
-            <generatedKey column="id" sqlStatement="MySql" identity="true" />
-        </table>-->
+        <!-- <table tableName="collect_document_rel" domainObjectName="CollectDocumentRel">
+             <generatedKey column="id" sqlStatement="MySql" identity="true" />
+         </table>-->
         <table tableName="temp" domainObjectName="Temp">
             <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
         </table>
+
+
+        <table tableName="user" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="strategy" domainObjectName="Strategy">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="store" domainObjectName="Store">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="order_product" domainObjectName="OrderProduct"></table>
+        <table tableName="distribute_product" domainObjectName="DistributeProduct"></table>
+        <table tableName="stock" domainObjectName="Stock">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="product" domainObjectName="Product">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="order" domainObjectName="Order">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="distribute" domainObjectName="Distribute">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="user" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="category" domainObjectName="Category">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="area" domainObjectName="Area">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+        <table tableName="agent" domainObjectName="Area">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
+        </table>
+
         <!--<table tableName="category" domainObjectName="Category">-->
             <!--<generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>-->
         <!--</table>-->
