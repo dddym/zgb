@@ -3,7 +3,6 @@ package cn.zgbfour.zgb.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class AreaExample implements Serializable {
@@ -127,32 +126,6 @@ public class AreaExample implements Serializable {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -415,52 +388,62 @@ public class AreaExample implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andIphoneEqualTo(Integer value) {
+        public Criteria andIphoneEqualTo(String value) {
             addCriterion("iphone =", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneNotEqualTo(Integer value) {
+        public Criteria andIphoneNotEqualTo(String value) {
             addCriterion("iphone <>", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneGreaterThan(Integer value) {
+        public Criteria andIphoneGreaterThan(String value) {
             addCriterion("iphone >", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIphoneGreaterThanOrEqualTo(String value) {
             addCriterion("iphone >=", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneLessThan(Integer value) {
+        public Criteria andIphoneLessThan(String value) {
             addCriterion("iphone <", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneLessThanOrEqualTo(Integer value) {
+        public Criteria andIphoneLessThanOrEqualTo(String value) {
             addCriterion("iphone <=", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneIn(List<Integer> values) {
+        public Criteria andIphoneLike(String value) {
+            addCriterion("iphone like", value, "iphone");
+            return (Criteria) this;
+        }
+
+        public Criteria andIphoneNotLike(String value) {
+            addCriterion("iphone not like", value, "iphone");
+            return (Criteria) this;
+        }
+
+        public Criteria andIphoneIn(List<String> values) {
             addCriterion("iphone in", values, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneNotIn(List<Integer> values) {
+        public Criteria andIphoneNotIn(List<String> values) {
             addCriterion("iphone not in", values, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneBetween(Integer value1, Integer value2) {
+        public Criteria andIphoneBetween(String value1, String value2) {
             addCriterion("iphone between", value1, value2, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneNotBetween(Integer value1, Integer value2) {
+        public Criteria andIphoneNotBetween(String value1, String value2) {
             addCriterion("iphone not between", value1, value2, "iphone");
             return (Criteria) this;
         }
@@ -476,52 +459,52 @@ public class AreaExample implements Serializable {
         }
 
         public Criteria andCreateTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("create_time =", value, "createTime");
+            addCriterion("create_time =", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("create_time <>", value, "createTime");
+            addCriterion("create_time <>", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("create_time >", value, "createTime");
+            addCriterion("create_time >", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("create_time >=", value, "createTime");
+            addCriterion("create_time >=", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeLessThan(Date value) {
-            addCriterionForJDBCDate("create_time <", value, "createTime");
+            addCriterion("create_time <", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("create_time <=", value, "createTime");
+            addCriterion("create_time <=", value, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("create_time in", values, "createTime");
+            addCriterion("create_time in", values, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("create_time not in", values, "createTime");
+            addCriterion("create_time not in", values, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("create_time between", value1, value2, "createTime");
+            addCriterion("create_time between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
         public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("create_time not between", value1, value2, "createTime");
+            addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
@@ -536,52 +519,52 @@ public class AreaExample implements Serializable {
         }
 
         public Criteria andEndTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("end_time =", value, "endTime");
+            addCriterion("end_time =", value, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("end_time <>", value, "endTime");
+            addCriterion("end_time <>", value, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("end_time >", value, "endTime");
+            addCriterion("end_time >", value, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("end_time >=", value, "endTime");
+            addCriterion("end_time >=", value, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeLessThan(Date value) {
-            addCriterionForJDBCDate("end_time <", value, "endTime");
+            addCriterion("end_time <", value, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("end_time <=", value, "endTime");
+            addCriterion("end_time <=", value, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("end_time in", values, "endTime");
+            addCriterion("end_time in", values, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("end_time not in", values, "endTime");
+            addCriterion("end_time not in", values, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("end_time between", value1, value2, "endTime");
+            addCriterion("end_time between", value1, value2, "endTime");
             return (Criteria) this;
         }
 
         public Criteria andEndTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("end_time not between", value1, value2, "endTime");
+            addCriterion("end_time not between", value1, value2, "endTime");
             return (Criteria) this;
         }
 

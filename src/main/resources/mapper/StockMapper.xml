@@ -3,7 +3,7 @@
 <mapper namespace="cn.zgbfour.zgb.dao.StockMapper">
   <resultMap id="BaseResultMap" type="cn.zgbfour.zgb.entity.Stock">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="buytime" jdbcType="DATE" property="buytime" />
+    <result column="buytime" jdbcType="TIMESTAMP" property="buytime" />
     <result column="amount" jdbcType="INTEGER" property="amount" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
     <result column="price" jdbcType="DECIMAL" property="price" />
@@ -109,7 +109,7 @@
     </selectKey>
     insert into stock (buytime, amount, product_id, 
       price, total_price)
-    values (#{buytime,jdbcType=DATE}, #{amount,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
+    values (#{buytime,jdbcType=TIMESTAMP}, #{amount,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, 
       #{price,jdbcType=DECIMAL}, #{totalPrice,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="cn.zgbfour.zgb.entity.Stock">
@@ -136,7 +136,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="buytime != null">
-        #{buytime,jdbcType=DATE},
+        #{buytime,jdbcType=TIMESTAMP},
       </if>
       <if test="amount != null">
         #{amount,jdbcType=INTEGER},
@@ -165,7 +165,7 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.buytime != null">
-        buytime = #{record.buytime,jdbcType=DATE},
+        buytime = #{record.buytime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.amount != null">
         amount = #{record.amount,jdbcType=INTEGER},
@@ -187,7 +187,7 @@
   <update id="updateByExample" parameterType="map">
     update stock
     set id = #{record.id,jdbcType=INTEGER},
-      buytime = #{record.buytime,jdbcType=DATE},
+      buytime = #{record.buytime,jdbcType=TIMESTAMP},
       amount = #{record.amount,jdbcType=INTEGER},
       product_id = #{record.productId,jdbcType=INTEGER},
       price = #{record.price,jdbcType=DECIMAL},
@@ -200,7 +200,7 @@
     update stock
     <set>
       <if test="buytime != null">
-        buytime = #{buytime,jdbcType=DATE},
+        buytime = #{buytime,jdbcType=TIMESTAMP},
       </if>
       <if test="amount != null">
         amount = #{amount,jdbcType=INTEGER},
@@ -219,7 +219,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.zgbfour.zgb.entity.Stock">
     update stock
-    set buytime = #{buytime,jdbcType=DATE},
+    set buytime = #{buytime,jdbcType=TIMESTAMP},
       amount = #{amount,jdbcType=INTEGER},
       product_id = #{productId,jdbcType=INTEGER},
       price = #{price,jdbcType=DECIMAL},

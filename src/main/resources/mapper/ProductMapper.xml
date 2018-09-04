@@ -8,9 +8,9 @@
     <result column="stock_amount" jdbcType="INTEGER" property="stockAmount" />
     <result column="shelf" jdbcType="INTEGER" property="shelf" />
     <result column="category_id" jdbcType="INTEGER" property="categoryId" />
-    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="purchase_price" jdbcType="DECIMAL" property="purchasePrice" />
-    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="delete" jdbcType="INTEGER" property="delete" />
     <result column="agent_id" jdbcType="INTEGER" property="agentId" />
     <result column="describtion" jdbcType="VARCHAR" property="describtion" />
@@ -122,8 +122,8 @@
       agent_id, describtion, img, 
       price)
     values (#{name,jdbcType=VARCHAR}, #{releaseAmount,jdbcType=INTEGER}, #{stockAmount,jdbcType=INTEGER}, 
-      #{shelf,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, 
-      #{purchasePrice,jdbcType=DECIMAL}, #{updateTime,jdbcType=DATE}, #{delete,jdbcType=INTEGER}, 
+      #{shelf,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{purchasePrice,jdbcType=DECIMAL}, #{updateTime,jdbcType=TIMESTAMP}, #{delete,jdbcType=INTEGER}, 
       #{agentId,jdbcType=INTEGER}, #{describtion,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
       #{price,jdbcType=DECIMAL})
   </insert>
@@ -190,13 +190,13 @@
         #{categoryId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="purchasePrice != null">
         #{purchasePrice,jdbcType=DECIMAL},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=DATE},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="delete != null">
         #{delete,jdbcType=INTEGER},
@@ -243,13 +243,13 @@
         category_id = #{record.categoryId,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=DATE},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.purchasePrice != null">
         purchase_price = #{record.purchasePrice,jdbcType=DECIMAL},
       </if>
       <if test="record.updateTime != null">
-        update_time = #{record.updateTime,jdbcType=DATE},
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.delete != null">
         delete = #{record.delete,jdbcType=INTEGER},
@@ -279,9 +279,9 @@
       stock_amount = #{record.stockAmount,jdbcType=INTEGER},
       shelf = #{record.shelf,jdbcType=INTEGER},
       category_id = #{record.categoryId,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=DATE},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
       purchase_price = #{record.purchasePrice,jdbcType=DECIMAL},
-      update_time = #{record.updateTime,jdbcType=DATE},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       delete = #{record.delete,jdbcType=INTEGER},
       agent_id = #{record.agentId,jdbcType=INTEGER},
       describtion = #{record.describtion,jdbcType=VARCHAR},
@@ -310,13 +310,13 @@
         category_id = #{categoryId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="purchasePrice != null">
         purchase_price = #{purchasePrice,jdbcType=DECIMAL},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=DATE},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="delete != null">
         delete = #{delete,jdbcType=INTEGER},
@@ -343,9 +343,9 @@
       stock_amount = #{stockAmount,jdbcType=INTEGER},
       shelf = #{shelf,jdbcType=INTEGER},
       category_id = #{categoryId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
       purchase_price = #{purchasePrice,jdbcType=DECIMAL},
-      update_time = #{updateTime,jdbcType=DATE},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
       delete = #{delete,jdbcType=INTEGER},
       agent_id = #{agentId,jdbcType=INTEGER},
       describtion = #{describtion,jdbcType=VARCHAR},

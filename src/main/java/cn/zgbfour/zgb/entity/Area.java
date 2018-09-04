@@ -12,7 +12,7 @@ public class Area implements Serializable {
 
     private Integer areaId;
 
-    private Integer iphone;
+    private String iphone;
 
     private Date createTime;
 
@@ -62,12 +62,12 @@ public class Area implements Serializable {
         this.areaId = areaId;
     }
 
-    public Integer getIphone() {
+    public String getIphone() {
         return iphone;
     }
 
-    public void setIphone(Integer iphone) {
-        this.iphone = iphone;
+    public void setIphone(String iphone) {
+        this.iphone = iphone == null ? null : iphone.trim();
     }
 
     public Date getCreateTime() {

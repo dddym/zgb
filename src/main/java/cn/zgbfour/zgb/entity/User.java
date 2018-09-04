@@ -10,7 +10,7 @@ public class User implements Serializable {
 
     private String name;
 
-    private Integer iphone;
+    private String iphone;
 
     private Integer type;
 
@@ -54,12 +54,12 @@ public class User implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getIphone() {
+    public String getIphone() {
         return iphone;
     }
 
-    public void setIphone(Integer iphone) {
-        this.iphone = iphone;
+    public void setIphone(String iphone) {
+        this.iphone = iphone == null ? null : iphone.trim();
     }
 
     public Integer getType() {

@@ -4,8 +4,8 @@
   <resultMap id="BaseResultMap" type="cn.zgbfour.zgb.entity.Distribute">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="distributor" jdbcType="VARCHAR" property="distributor" />
-    <result column="distribute_time" jdbcType="DATE" property="distributeTime" />
-    <result column="complete_time" jdbcType="DATE" property="completeTime" />
+    <result column="distribute_time" jdbcType="TIMESTAMP" property="distributeTime" />
+    <result column="complete_time" jdbcType="TIMESTAMP" property="completeTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -107,7 +107,7 @@
     </selectKey>
     insert into distribute (distributor, distribute_time, complete_time
       )
-    values (#{distributor,jdbcType=VARCHAR}, #{distributeTime,jdbcType=DATE}, #{completeTime,jdbcType=DATE}
+    values (#{distributor,jdbcType=VARCHAR}, #{distributeTime,jdbcType=TIMESTAMP}, #{completeTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.zgbfour.zgb.entity.Distribute">
@@ -131,10 +131,10 @@
         #{distributor,jdbcType=VARCHAR},
       </if>
       <if test="distributeTime != null">
-        #{distributeTime,jdbcType=DATE},
+        #{distributeTime,jdbcType=TIMESTAMP},
       </if>
       <if test="completeTime != null">
-        #{completeTime,jdbcType=DATE},
+        #{completeTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -154,10 +154,10 @@
         distributor = #{record.distributor,jdbcType=VARCHAR},
       </if>
       <if test="record.distributeTime != null">
-        distribute_time = #{record.distributeTime,jdbcType=DATE},
+        distribute_time = #{record.distributeTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.completeTime != null">
-        complete_time = #{record.completeTime,jdbcType=DATE},
+        complete_time = #{record.completeTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -168,8 +168,8 @@
     update distribute
     set id = #{record.id,jdbcType=INTEGER},
       distributor = #{record.distributor,jdbcType=VARCHAR},
-      distribute_time = #{record.distributeTime,jdbcType=DATE},
-      complete_time = #{record.completeTime,jdbcType=DATE}
+      distribute_time = #{record.distributeTime,jdbcType=TIMESTAMP},
+      complete_time = #{record.completeTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -181,10 +181,10 @@
         distributor = #{distributor,jdbcType=VARCHAR},
       </if>
       <if test="distributeTime != null">
-        distribute_time = #{distributeTime,jdbcType=DATE},
+        distribute_time = #{distributeTime,jdbcType=TIMESTAMP},
       </if>
       <if test="completeTime != null">
-        complete_time = #{completeTime,jdbcType=DATE},
+        complete_time = #{completeTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -192,8 +192,8 @@
   <update id="updateByPrimaryKey" parameterType="cn.zgbfour.zgb.entity.Distribute">
     update distribute
     set distributor = #{distributor,jdbcType=VARCHAR},
-      distribute_time = #{distributeTime,jdbcType=DATE},
-      complete_time = #{completeTime,jdbcType=DATE}
+      distribute_time = #{distributeTime,jdbcType=TIMESTAMP},
+      complete_time = #{completeTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectForUpdate" parameterType="java.lang.Integer" resultMap="BaseResultMap">

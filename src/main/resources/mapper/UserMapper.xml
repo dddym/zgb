@@ -5,9 +5,9 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="area_id" jdbcType="INTEGER" property="areaId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="iphone" jdbcType="INTEGER" property="iphone" />
+    <result column="iphone" jdbcType="VARCHAR" property="iphone" />
     <result column="type" jdbcType="INTEGER" property="type" />
-    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -118,8 +118,8 @@
       type, create_time, status, 
       username, password, store_id, 
       agent_id, openid)
-    values (#{areaId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{iphone,jdbcType=INTEGER}, 
-      #{type,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, #{status,jdbcType=INTEGER}, 
+    values (#{areaId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{iphone,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
       #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{storeId,jdbcType=INTEGER}, 
       #{agentId,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR})
   </insert>
@@ -171,13 +171,13 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="iphone != null">
-        #{iphone,jdbcType=INTEGER},
+        #{iphone,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
         #{type,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
@@ -218,13 +218,13 @@
         name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.iphone != null">
-        iphone = #{record.iphone,jdbcType=INTEGER},
+        iphone = #{record.iphone,jdbcType=VARCHAR},
       </if>
       <if test="record.type != null">
         type = #{record.type,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=DATE},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
@@ -254,9 +254,9 @@
     set id = #{record.id,jdbcType=INTEGER},
       area_id = #{record.areaId,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
-      iphone = #{record.iphone,jdbcType=INTEGER},
+      iphone = #{record.iphone,jdbcType=VARCHAR},
       type = #{record.type,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=DATE},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
@@ -277,13 +277,13 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="iphone != null">
-        iphone = #{iphone,jdbcType=INTEGER},
+        iphone = #{iphone,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
         type = #{type,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
@@ -310,9 +310,9 @@
     update user
     set area_id = #{areaId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
-      iphone = #{iphone,jdbcType=INTEGER},
+      iphone = #{iphone,jdbcType=VARCHAR},
       type = #{type,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER},
       username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
