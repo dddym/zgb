@@ -31,6 +31,7 @@ public class Message {
     //访问前缀
     public static final String API = "/api";
 
+    //测试的访问接口
     public static final String TEST = "hello";
 
 
