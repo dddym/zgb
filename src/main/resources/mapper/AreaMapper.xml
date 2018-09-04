@@ -6,9 +6,9 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="owner" jdbcType="INTEGER" property="owner" />
     <result column="area_id" jdbcType="INTEGER" property="areaId" />
-    <result column="iphone" jdbcType="INTEGER" property="iphone" />
-    <result column="create_time" jdbcType="DATE" property="createTime" />
-    <result column="end_time" jdbcType="DATE" property="endTime" />
+    <result column="iphone" jdbcType="VARCHAR" property="iphone" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="free_policy_number" jdbcType="INTEGER" property="freePolicyNumber" />
     <result column="buy_policy_number" jdbcType="INTEGER" property="buyPolicyNumber" />
@@ -119,7 +119,7 @@
       address, free_policy_number, buy_policy_number, 
       license, review_status)
     values (#{name,jdbcType=VARCHAR}, #{owner,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
-      #{iphone,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, #{endTime,jdbcType=DATE}, 
+      #{iphone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
       #{address,jdbcType=VARCHAR}, #{freePolicyNumber,jdbcType=INTEGER}, #{buyPolicyNumber,jdbcType=INTEGER}, 
       #{license,jdbcType=VARCHAR}, #{reviewStatus,jdbcType=INTEGER})
   </insert>
@@ -174,13 +174,13 @@
         #{areaId,jdbcType=INTEGER},
       </if>
       <if test="iphone != null">
-        #{iphone,jdbcType=INTEGER},
+        #{iphone,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="endTime != null">
-        #{endTime,jdbcType=DATE},
+        #{endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
@@ -221,13 +221,13 @@
         area_id = #{record.areaId,jdbcType=INTEGER},
       </if>
       <if test="record.iphone != null">
-        iphone = #{record.iphone,jdbcType=INTEGER},
+        iphone = #{record.iphone,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=DATE},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.endTime != null">
-        end_time = #{record.endTime,jdbcType=DATE},
+        end_time = #{record.endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.address != null">
         address = #{record.address,jdbcType=VARCHAR},
@@ -255,9 +255,9 @@
       name = #{record.name,jdbcType=VARCHAR},
       owner = #{record.owner,jdbcType=INTEGER},
       area_id = #{record.areaId,jdbcType=INTEGER},
-      iphone = #{record.iphone,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=DATE},
-      end_time = #{record.endTime,jdbcType=DATE},
+      iphone = #{record.iphone,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
       address = #{record.address,jdbcType=VARCHAR},
       free_policy_number = #{record.freePolicyNumber,jdbcType=INTEGER},
       buy_policy_number = #{record.buyPolicyNumber,jdbcType=INTEGER},
@@ -280,13 +280,13 @@
         area_id = #{areaId,jdbcType=INTEGER},
       </if>
       <if test="iphone != null">
-        iphone = #{iphone,jdbcType=INTEGER},
+        iphone = #{iphone,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="endTime != null">
-        end_time = #{endTime,jdbcType=DATE},
+        end_time = #{endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
@@ -311,9 +311,9 @@
     set name = #{name,jdbcType=VARCHAR},
       owner = #{owner,jdbcType=INTEGER},
       area_id = #{areaId,jdbcType=INTEGER},
-      iphone = #{iphone,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
-      end_time = #{endTime,jdbcType=DATE},
+      iphone = #{iphone,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
       address = #{address,jdbcType=VARCHAR},
       free_policy_number = #{freePolicyNumber,jdbcType=INTEGER},
       buy_policy_number = #{buyPolicyNumber,jdbcType=INTEGER},

@@ -5,9 +5,9 @@
     <id column="category_id" jdbcType="INTEGER" property="categoryId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="agent_id" jdbcType="INTEGER" property="agentId" />
-    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="delete" jdbcType="INTEGER" property="delete" />
-    <result column="delete_time" jdbcType="DATE" property="deleteTime" />
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -108,7 +108,7 @@
       create_time, delete, delete_time
       )
     values (#{categoryId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{agentId,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=DATE}, #{delete,jdbcType=INTEGER}, #{deleteTime,jdbcType=DATE}
+      #{createTime,jdbcType=TIMESTAMP}, #{delete,jdbcType=INTEGER}, #{deleteTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.zgbfour.zgb.entity.Category">
@@ -144,13 +144,13 @@
         #{agentId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="delete != null">
         #{delete,jdbcType=INTEGER},
       </if>
       <if test="deleteTime != null">
-        #{deleteTime,jdbcType=DATE},
+        #{deleteTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -173,13 +173,13 @@
         agent_id = #{record.agentId,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=DATE},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.delete != null">
         delete = #{record.delete,jdbcType=INTEGER},
       </if>
       <if test="record.deleteTime != null">
-        delete_time = #{record.deleteTime,jdbcType=DATE},
+        delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -191,9 +191,9 @@
     set category_id = #{record.categoryId,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       agent_id = #{record.agentId,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=DATE},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
       delete = #{record.delete,jdbcType=INTEGER},
-      delete_time = #{record.deleteTime,jdbcType=DATE}
+      delete_time = #{record.deleteTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -208,13 +208,13 @@
         agent_id = #{agentId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="delete != null">
         delete = #{delete,jdbcType=INTEGER},
       </if>
       <if test="deleteTime != null">
-        delete_time = #{deleteTime,jdbcType=DATE},
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where category_id = #{categoryId,jdbcType=INTEGER}
@@ -223,9 +223,9 @@
     update category
     set name = #{name,jdbcType=VARCHAR},
       agent_id = #{agentId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
       delete = #{delete,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=DATE}
+      delete_time = #{deleteTime,jdbcType=TIMESTAMP}
     where category_id = #{categoryId,jdbcType=INTEGER}
   </update>
   <select id="selectForUpdate" parameterType="java.lang.Integer" resultMap="BaseResultMap">

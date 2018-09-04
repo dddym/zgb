@@ -3,9 +3,9 @@
 <mapper namespace="cn.zgbfour.zgb.dao.OrderMapper">
   <resultMap id="BaseResultMap" type="cn.zgbfour.zgb.entity.Order">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="create_time" jdbcType="DATE" property="createTime" />
-    <result column="update_time" jdbcType="DATE" property="updateTime" />
-    <result column="distribution_time" jdbcType="DATE" property="distributionTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="distribution_time" jdbcType="TIMESTAMP" property="distributionTime" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="store_id" jdbcType="INTEGER" property="storeId" />
     <result column="payable_amount" jdbcType="DECIMAL" property="payableAmount" />
@@ -118,7 +118,7 @@
       status, store_id, payable_amount, 
       payment_amount, area_id, snapshot, 
       strategy_id, distribute_id)
-    values (#{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}, #{distributionTime,jdbcType=DATE}, 
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{distributionTime,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER}, #{storeId,jdbcType=INTEGER}, #{payableAmount,jdbcType=DECIMAL}, 
       #{paymentAmount,jdbcType=DECIMAL}, #{areaId,jdbcType=INTEGER}, #{snapshot,jdbcType=VARCHAR}, 
       #{strategyId,jdbcType=INTEGER}, #{distributeId,jdbcType=INTEGER})
@@ -165,13 +165,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="createTime != null">
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=DATE},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="distributionTime != null">
-        #{distributionTime,jdbcType=DATE},
+        #{distributionTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
@@ -212,13 +212,13 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=DATE},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.updateTime != null">
-        update_time = #{record.updateTime,jdbcType=DATE},
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.distributionTime != null">
-        distribution_time = #{record.distributionTime,jdbcType=DATE},
+        distribution_time = #{record.distributionTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
@@ -252,9 +252,9 @@
   <update id="updateByExample" parameterType="map">
     update order
     set id = #{record.id,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=DATE},
-      update_time = #{record.updateTime,jdbcType=DATE},
-      distribution_time = #{record.distributionTime,jdbcType=DATE},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      distribution_time = #{record.distributionTime,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=INTEGER},
       store_id = #{record.storeId,jdbcType=INTEGER},
       payable_amount = #{record.payableAmount,jdbcType=DECIMAL},
@@ -271,13 +271,13 @@
     update order
     <set>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=DATE},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="distributionTime != null">
-        distribution_time = #{distributionTime,jdbcType=DATE},
+        distribution_time = #{distributionTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
@@ -308,9 +308,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.zgbfour.zgb.entity.Order">
     update order
-    set create_time = #{createTime,jdbcType=DATE},
-      update_time = #{updateTime,jdbcType=DATE},
-      distribution_time = #{distributionTime,jdbcType=DATE},
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      distribution_time = #{distributionTime,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER},
       store_id = #{storeId,jdbcType=INTEGER},
       payable_amount = #{payableAmount,jdbcType=DECIMAL},

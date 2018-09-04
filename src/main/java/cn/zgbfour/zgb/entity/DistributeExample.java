@@ -3,7 +3,6 @@ package cn.zgbfour.zgb.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class DistributeExample implements Serializable {
@@ -127,32 +126,6 @@ public class DistributeExample implements Serializable {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -296,52 +269,52 @@ public class DistributeExample implements Serializable {
         }
 
         public Criteria andDistributeTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("distribute_time =", value, "distributeTime");
+            addCriterion("distribute_time =", value, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("distribute_time <>", value, "distributeTime");
+            addCriterion("distribute_time <>", value, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("distribute_time >", value, "distributeTime");
+            addCriterion("distribute_time >", value, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("distribute_time >=", value, "distributeTime");
+            addCriterion("distribute_time >=", value, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeLessThan(Date value) {
-            addCriterionForJDBCDate("distribute_time <", value, "distributeTime");
+            addCriterion("distribute_time <", value, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("distribute_time <=", value, "distributeTime");
+            addCriterion("distribute_time <=", value, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("distribute_time in", values, "distributeTime");
+            addCriterion("distribute_time in", values, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("distribute_time not in", values, "distributeTime");
+            addCriterion("distribute_time not in", values, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("distribute_time between", value1, value2, "distributeTime");
+            addCriterion("distribute_time between", value1, value2, "distributeTime");
             return (Criteria) this;
         }
 
         public Criteria andDistributeTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("distribute_time not between", value1, value2, "distributeTime");
+            addCriterion("distribute_time not between", value1, value2, "distributeTime");
             return (Criteria) this;
         }
 
@@ -356,52 +329,52 @@ public class DistributeExample implements Serializable {
         }
 
         public Criteria andCompleteTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("complete_time =", value, "completeTime");
+            addCriterion("complete_time =", value, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("complete_time <>", value, "completeTime");
+            addCriterion("complete_time <>", value, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("complete_time >", value, "completeTime");
+            addCriterion("complete_time >", value, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("complete_time >=", value, "completeTime");
+            addCriterion("complete_time >=", value, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeLessThan(Date value) {
-            addCriterionForJDBCDate("complete_time <", value, "completeTime");
+            addCriterion("complete_time <", value, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("complete_time <=", value, "completeTime");
+            addCriterion("complete_time <=", value, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("complete_time in", values, "completeTime");
+            addCriterion("complete_time in", values, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("complete_time not in", values, "completeTime");
+            addCriterion("complete_time not in", values, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("complete_time between", value1, value2, "completeTime");
+            addCriterion("complete_time between", value1, value2, "completeTime");
             return (Criteria) this;
         }
 
         public Criteria andCompleteTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("complete_time not between", value1, value2, "completeTime");
+            addCriterion("complete_time not between", value1, value2, "completeTime");
             return (Criteria) this;
         }
     }

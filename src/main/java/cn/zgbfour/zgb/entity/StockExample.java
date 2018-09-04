@@ -3,7 +3,6 @@ package cn.zgbfour.zgb.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class StockExample implements Serializable {
@@ -129,32 +128,6 @@ public class StockExample implements Serializable {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
-        }
-
         public Criteria andIdIsNull() {
             addCriterion("id is null");
             return (Criteria) this;
@@ -226,52 +199,52 @@ public class StockExample implements Serializable {
         }
 
         public Criteria andBuytimeEqualTo(Date value) {
-            addCriterionForJDBCDate("buytime =", value, "buytime");
+            addCriterion("buytime =", value, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("buytime <>", value, "buytime");
+            addCriterion("buytime <>", value, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("buytime >", value, "buytime");
+            addCriterion("buytime >", value, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("buytime >=", value, "buytime");
+            addCriterion("buytime >=", value, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeLessThan(Date value) {
-            addCriterionForJDBCDate("buytime <", value, "buytime");
+            addCriterion("buytime <", value, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("buytime <=", value, "buytime");
+            addCriterion("buytime <=", value, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeIn(List<Date> values) {
-            addCriterionForJDBCDate("buytime in", values, "buytime");
+            addCriterion("buytime in", values, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("buytime not in", values, "buytime");
+            addCriterion("buytime not in", values, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("buytime between", value1, value2, "buytime");
+            addCriterion("buytime between", value1, value2, "buytime");
             return (Criteria) this;
         }
 
         public Criteria andBuytimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("buytime not between", value1, value2, "buytime");
+            addCriterion("buytime not between", value1, value2, "buytime");
             return (Criteria) this;
         }
 
