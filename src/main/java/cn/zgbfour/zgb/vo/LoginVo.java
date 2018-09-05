@@ -20,6 +20,16 @@ public class LoginVo {
 
     private Area area;
 
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public User getUser() {
         return user;
     }
@@ -50,5 +60,16 @@ public class LoginVo {
 
     public void setArea(Area area) {
         this.area = area;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginVo{" +
+                "user=" + user +
+                ", store=" + store +
+                ", agent=" + agent +
+                ", area=" + area +
+                ", token='" + token + '\'' +
+                '}';
     }
 }

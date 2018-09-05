@@ -12,11 +12,16 @@ import cn.zgbfour.zgb.model.Result;
 import cn.zgbfour.zgb.service.LoginService;
 import cn.zgbfour.zgb.utils.ResultUtil;
 import cn.zgbfour.zgb.vo.LoginVo;
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import redis.clients.jedis.Jedis;
 
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * author:liuda
@@ -37,6 +42,9 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private AgentMapper agentMapper;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     @Override
     public Result login(String username,String passsword,Integer areaId) {
@@ -65,9 +73,20 @@ public class LoginServiceImpl implements LoginService {
                     user.getType() == Message.AGENT_STRATEGY ||user.getType() == Message.AGENT_USER){
                 loginVo.setAgent(agentMapper.selectByPrimaryKey(user.getAgentId()));
             }
+            //存到redis中
+            String rsession = UUID.randomUUID().toString();
+            loginVo.setToken(rsession);
+            stringRedisTemplate.opsForValue().set(rsession, Message.CONTENT+user.getId(), 60*30, TimeUnit.SECONDS);
+            stringRedisTemplate.opsForValue().set(Message.CONTENT+user.getId(),JSON.toJSONString(loginVo), 60*30, TimeUnit.SECONDS);
             return ResultUtil.success(loginVo);
         }catch (Exception e){
             return ResultUtil.error(ResultMsg.LOGIN_SELECT_USER_CODE,ResultMsg.LOGIN_SELECT_USER_MSG);
         }
+    }
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("58.87.117.11", 6379);
+        System.out.println(jedis);
+        String ping = jedis.ping();
+        System.out.println(ping);
     }
 }

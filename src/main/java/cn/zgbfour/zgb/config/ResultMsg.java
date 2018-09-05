@@ -19,4 +19,10 @@ public class ResultMsg {
     public static final Integer LOGIN_NOTMSG_CODE = 10003;
     public static final String LOGIN_NOTMSG_MSG = "查询信息不全，请输入全部信息";
 
+    public static final Integer NO_TOKEN_CODE = 10004;
+    public static final String NO_TOKEN_MSG = "没有传入token信息";
+
+    public static final Integer NO_VAL_TOKEN_CODE = 10005;
+    public static final String NO_VAL_TOKEN_MSG = "token失效，请重新登陆";
+
 }

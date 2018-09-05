@@ -45,4 +45,6 @@ public class Message {
     public static final Integer AREA_MANAGE = 88;
     public static final Integer ADMIN = 99;
 
+    //redis中存放用户id的标识前缀
+    public static final String CONTENT = "SYSTEM_USER";
 }
