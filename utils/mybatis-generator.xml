@@ -103,7 +103,7 @@
         <table tableName="area" domainObjectName="Area">
             <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
         </table>
-        <table tableName="agent" domainObjectName="Area">
+        <table tableName="agent" domainObjectName="Agent">
             <generatedKey column="id" sqlStatement="MySql" identity="true"></generatedKey>
         </table>
 

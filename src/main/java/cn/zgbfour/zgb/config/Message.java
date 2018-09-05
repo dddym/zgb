@@ -34,5 +34,15 @@ public class Message {
     //测试的访问接口
     public static final String TEST = "hello";
 
+    //用户类型 1商户创建者  2商户使用者 3代理商创建者 4配送员 5库房管理员  6代理商使用者  88区域管理员 99系统管理员
+
+    public static final Integer STORY_CREATE = 1;
+    public static final Integer STORY_USER = 2;
+    public static final Integer AGENT_CREATE = 3;
+    public static final Integer AGENT_DISTRIBUTE = 4;
+    public static final Integer AGENT_STRATEGY = 5;
+    public static final Integer AGENT_USER = 6;
+    public static final Integer AREA_MANAGE = 88;
+    public static final Integer ADMIN = 99;
 
 }
