@@ -5,6 +5,7 @@ import cn.zgbfour.zgb.entity.Temp;
 import cn.zgbfour.zgb.model.Result;
 import cn.zgbfour.zgb.service.TempService;
 import cn.zgbfour.zgb.utils.ResultUtil;
+import cn.zgbfour.zgb.utils.UserInfoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ public class TeamController {
 
     @RequestMapping(value = Message.TEST)
     public Result<List<Temp>> test(){
+        //System.out.println(UserInfoUtils.getUserInfo());
         //return ResultUtil.success("项目第一步");
         return tempService.getTemp();
     }

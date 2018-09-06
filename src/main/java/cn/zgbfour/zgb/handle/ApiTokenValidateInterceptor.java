@@ -4,6 +4,7 @@ import cn.zgbfour.zgb.config.Message;
 import cn.zgbfour.zgb.config.ResultMsg;
 import cn.zgbfour.zgb.model.Result;
 import cn.zgbfour.zgb.utils.ResultUtil;
+import cn.zgbfour.zgb.vo.UserInfoRedis;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpStatus;
@@ -27,10 +28,13 @@ public class ApiTokenValidateInterceptor implements HandlerInterceptor {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+    @Autowired
+    private UserInfoRedis userInfoRedis;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
 
-        System.out.println("执行了拦截器");
+        //System.out.println("执行了拦截器");
         String authorization = request.getHeader("Authorization");
         String authorization1 = request.getParameter("Authorization");
         if (StringUtils.isBlank(authorization) && StringUtils.isBlank(authorization1)){
@@ -45,6 +49,7 @@ public class ApiTokenValidateInterceptor implements HandlerInterceptor {
                     value, 60*30, TimeUnit.SECONDS);
             stringRedisTemplate.opsForValue().set(value,
                     stringRedisTemplate.boundValueOps(value).get(), 60*30, TimeUnit.SECONDS);
+            userInfoRedis.setTokenKey(value);
             return true;
         }else {
             Result error = ResultUtil.error(ResultMsg.NO_VAL_TOKEN_CODE, ResultMsg.NO_VAL_TOKEN_MSG);

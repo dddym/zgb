@@ -8,5 +8,5 @@ import cn.zgbfour.zgb.model.Result;
  * Time:0:26
  */
 public interface LoginService {
-    public Result login(String username,String passsword,Integer areaId);
+    public Result login(String username,String passsword);
 }
