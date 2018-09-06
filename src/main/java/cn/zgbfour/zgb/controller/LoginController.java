@@ -21,12 +21,11 @@ public class LoginController {
     private LoginService loginService;
 
     @RequestMapping(value = "login")
-    public Result login(String username,String passsword,String areaId){
-        if (StringUtils.isBlank(username) || StringUtils.isBlank(passsword)
-                || StringUtils.isBlank(areaId)){
+    public Result login(String username,String passsword){
+        if (StringUtils.isBlank(username) || StringUtils.isBlank(passsword)){
             return ResultUtil.error(ResultMsg.LOGIN_NOTMSG_CODE,ResultMsg.LOGIN_NOTMSG_MSG);
         }else {
-            return loginService.login(username,passsword,Integer.parseInt(areaId));
+            return loginService.login(username,passsword);
         }
     }
 }

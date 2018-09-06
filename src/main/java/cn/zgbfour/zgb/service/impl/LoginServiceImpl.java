@@ -13,6 +13,7 @@ import cn.zgbfour.zgb.service.LoginService;
 import cn.zgbfour.zgb.utils.ResultUtil;
 import cn.zgbfour.zgb.vo.LoginVo;
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -47,13 +48,12 @@ public class LoginServiceImpl implements LoginService {
     private StringRedisTemplate stringRedisTemplate;
 
     @Override
-    public Result login(String username,String passsword,Integer areaId) {
+    public Result login(String username,String passsword) {
         try {
             UserExample userExample = new UserExample();
             UserExample.Criteria criteria = userExample.createCriteria();
             criteria.andUsernameEqualTo(username)
-                    .andPasswordEqualTo(passsword)
-                    .andAreaIdEqualTo(areaId);
+                    .andPasswordEqualTo(passsword);
             List<User> users = userMapper.selectByExample(userExample);
             if (CollectionUtils.isEmpty(users)){
                 return ResultUtil.error(ResultMsg.LOGIN_NO_USER_CODE,ResultMsg.LOGIN_NO_USER_MSG);
@@ -73,6 +73,14 @@ public class LoginServiceImpl implements LoginService {
                     user.getType() == Message.AGENT_STRATEGY ||user.getType() == Message.AGENT_USER){
                 loginVo.setAgent(agentMapper.selectByPrimaryKey(user.getAgentId()));
             }
+            //如果token生效继续使用
+            String value =stringRedisTemplate.boundValueOps(Message.CONTENT+user.getId()).get();
+            if (StringUtils.isNotBlank(value)){
+                LoginVo object = JSON.parseObject(value, LoginVo.class);
+                if (StringUtils.isNotBlank(stringRedisTemplate.boundValueOps(object.getToken()).get())){
+                    return ResultUtil.success(object);
+                }
+            }
             //存到redis中
             String rsession = UUID.randomUUID().toString();
             loginVo.setToken(rsession);
@@ -84,7 +92,7 @@ public class LoginServiceImpl implements LoginService {
         }
     }
     public static void main(String[] args) {
-        Jedis jedis = new Jedis("58.87.117.11", 6379);
+        Jedis jedis = new Jedis("", 6379);
         System.out.println(jedis);
         String ping = jedis.ping();
         System.out.println(ping);
