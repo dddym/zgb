@@ -25,4 +25,27 @@ public class ResultMsg {
     public static final Integer NO_VAL_TOKEN_CODE = 10005;
     public static final String NO_VAL_TOKEN_MSG = "token失效，请重新登陆";
 
+
+    //分类错误信息和错误码
+    //插入数据失败
+    public static final Integer CATEGORY_INSERT_CODE = 20001;
+    public static final String CATEGORY_INSERT_MSG = "插入失败";
+    //代理商id为null
+    public static final Integer CATEGORY_NO_AGENTID_CODE = 20002;
+    public static final String CATEGORY_NO_AGENTID_MSG = "代理商id不能为空";
+    //category对象为null
+    public static final Integer CATEGORY_NULL_CODE = 20003;
+    public static final String CATEGORY_NULL_MSG = "类别为空";
+    //查询失败
+    public static final Integer CATEGORY_SELECT_CODE = 20004;
+    public static final String CATEGORY_SELECT_MSG = "查询失败";
+    //删除失败
+    public static final Integer CATEGORY_DELETE_CODE = 20006;
+    public static final String CATEGORY_DELETE_MSG = "删除失败";
+    //更新失败
+    public static final Integer CATEGORY_UPDATE_CODE = 20007;
+    public static final String CATEGORY_UPDATE_MSG = "更新失败";
+    //参数为空
+    public static final Integer PARAM_NULL_CODE=20005;
+    public static final String PARAM_NULL_MSG="参数为空,请传入参数";
 }
