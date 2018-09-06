@@ -12,7 +12,7 @@ public class Category implements Serializable {
 
     private Date createTime;
 
-    private Integer delete;
+    private Integer isDelete;
 
     private Date deleteTime;
 
@@ -50,12 +50,12 @@ public class Category implements Serializable {
         this.createTime = createTime;
     }
 
-    public Integer getDelete() {
-        return delete;
+    public Integer getIsDelete() {
+        return isDelete;
     }
 
-    public void setDelete(Integer delete) {
-        this.delete = delete;
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
     }
 
     public Date getDeleteTime() {
@@ -82,7 +82,7 @@ public class Category implements Serializable {
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getAgentId() == null ? other.getAgentId() == null : this.getAgentId().equals(other.getAgentId()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getDelete() == null ? other.getDelete() == null : this.getDelete().equals(other.getDelete()))
+            && (this.getIsDelete() == null ? other.getIsDelete() == null : this.getIsDelete().equals(other.getIsDelete()))
             && (this.getDeleteTime() == null ? other.getDeleteTime() == null : this.getDeleteTime().equals(other.getDeleteTime()));
     }
 
@@ -94,7 +94,7 @@ public class Category implements Serializable {
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getAgentId() == null) ? 0 : getAgentId().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
-        result = prime * result + ((getDelete() == null) ? 0 : getDelete().hashCode());
+        result = prime * result + ((getIsDelete() == null) ? 0 : getIsDelete().hashCode());
         result = prime * result + ((getDeleteTime() == null) ? 0 : getDeleteTime().hashCode());
         return result;
     }
@@ -109,7 +109,7 @@ public class Category implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", agentId=").append(agentId);
         sb.append(", createTime=").append(createTime);
-        sb.append(", delete=").append(delete);
+        sb.append(", isDelete=").append(isDelete);
         sb.append(", deleteTime=").append(deleteTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

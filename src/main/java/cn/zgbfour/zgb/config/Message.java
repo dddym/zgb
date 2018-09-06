@@ -47,4 +47,9 @@ public class Message {
 
     //redis中存放用户id的标识前缀
     public static final String CONTENT = "SYSTEM_USER";
+
+
+    //是否删除 存在为0 删除为1
+    public static final Integer STATUS_DELETE = 1;
+    public static final Integer STATUS_EXIST = 0;
 }

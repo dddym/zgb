@@ -11,7 +11,7 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="purchase_price" jdbcType="DECIMAL" property="purchasePrice" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="delete" jdbcType="INTEGER" property="delete" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
     <result column="agent_id" jdbcType="INTEGER" property="agentId" />
     <result column="describtion" jdbcType="VARCHAR" property="describtion" />
     <result column="img" jdbcType="VARCHAR" property="img" />
@@ -77,7 +77,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, name, release_amount, stock_amount, shelf, category_id, create_time, purchase_price, 
-    update_time, delete, agent_id, describtion, img, price
+    update_time, is_delete, agent_id, describtion, img, price
   </sql>
   <select id="selectByExample" parameterType="cn.zgbfour.zgb.entity.ProductExample" resultMap="BaseResultMap">
     select
@@ -118,12 +118,12 @@
     </selectKey>
     insert into product (name, release_amount, stock_amount, 
       shelf, category_id, create_time, 
-      purchase_price, update_time, delete, 
+      purchase_price, update_time, is_delete, 
       agent_id, describtion, img, 
       price)
     values (#{name,jdbcType=VARCHAR}, #{releaseAmount,jdbcType=INTEGER}, #{stockAmount,jdbcType=INTEGER}, 
       #{shelf,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{purchasePrice,jdbcType=DECIMAL}, #{updateTime,jdbcType=TIMESTAMP}, #{delete,jdbcType=INTEGER}, 
+      #{purchasePrice,jdbcType=DECIMAL}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER}, 
       #{agentId,jdbcType=INTEGER}, #{describtion,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
       #{price,jdbcType=DECIMAL})
   </insert>
@@ -157,8 +157,8 @@
       <if test="updateTime != null">
         update_time,
       </if>
-      <if test="delete != null">
-        delete,
+      <if test="isDelete != null">
+        is_delete,
       </if>
       <if test="agentId != null">
         agent_id,
@@ -198,8 +198,8 @@
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="delete != null">
-        #{delete,jdbcType=INTEGER},
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
       </if>
       <if test="agentId != null">
         #{agentId,jdbcType=INTEGER},
@@ -251,8 +251,8 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.delete != null">
-        delete = #{record.delete,jdbcType=INTEGER},
+      <if test="record.isDelete != null">
+        is_delete = #{record.isDelete,jdbcType=INTEGER},
       </if>
       <if test="record.agentId != null">
         agent_id = #{record.agentId,jdbcType=INTEGER},
@@ -282,7 +282,7 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       purchase_price = #{record.purchasePrice,jdbcType=DECIMAL},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      delete = #{record.delete,jdbcType=INTEGER},
+      is_delete = #{record.isDelete,jdbcType=INTEGER},
       agent_id = #{record.agentId,jdbcType=INTEGER},
       describtion = #{record.describtion,jdbcType=VARCHAR},
       img = #{record.img,jdbcType=VARCHAR},
@@ -318,8 +318,8 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="delete != null">
-        delete = #{delete,jdbcType=INTEGER},
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
       </if>
       <if test="agentId != null">
         agent_id = #{agentId,jdbcType=INTEGER},
@@ -346,7 +346,7 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       purchase_price = #{purchasePrice,jdbcType=DECIMAL},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      delete = #{delete,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=INTEGER},
       agent_id = #{agentId,jdbcType=INTEGER},
       describtion = #{describtion,jdbcType=VARCHAR},
       img = #{img,jdbcType=VARCHAR},

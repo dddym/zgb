@@ -22,7 +22,7 @@ public class Product implements Serializable {
 
     private Date updateTime;
 
-    private Integer delete;
+    private Integer isDelete;
 
     private Integer agentId;
 
@@ -106,12 +106,12 @@ public class Product implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getDelete() {
-        return delete;
+    public Integer getIsDelete() {
+        return isDelete;
     }
 
-    public void setDelete(Integer delete) {
-        this.delete = delete;
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
     }
 
     public Integer getAgentId() {
@@ -167,7 +167,7 @@ public class Product implements Serializable {
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getPurchasePrice() == null ? other.getPurchasePrice() == null : this.getPurchasePrice().equals(other.getPurchasePrice()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getDelete() == null ? other.getDelete() == null : this.getDelete().equals(other.getDelete()))
+            && (this.getIsDelete() == null ? other.getIsDelete() == null : this.getIsDelete().equals(other.getIsDelete()))
             && (this.getAgentId() == null ? other.getAgentId() == null : this.getAgentId().equals(other.getAgentId()))
             && (this.getDescribtion() == null ? other.getDescribtion() == null : this.getDescribtion().equals(other.getDescribtion()))
             && (this.getImg() == null ? other.getImg() == null : this.getImg().equals(other.getImg()))
@@ -187,7 +187,7 @@ public class Product implements Serializable {
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getPurchasePrice() == null) ? 0 : getPurchasePrice().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        result = prime * result + ((getDelete() == null) ? 0 : getDelete().hashCode());
+        result = prime * result + ((getIsDelete() == null) ? 0 : getIsDelete().hashCode());
         result = prime * result + ((getAgentId() == null) ? 0 : getAgentId().hashCode());
         result = prime * result + ((getDescribtion() == null) ? 0 : getDescribtion().hashCode());
         result = prime * result + ((getImg() == null) ? 0 : getImg().hashCode());
@@ -210,7 +210,7 @@ public class Product implements Serializable {
         sb.append(", createTime=").append(createTime);
         sb.append(", purchasePrice=").append(purchasePrice);
         sb.append(", updateTime=").append(updateTime);
-        sb.append(", delete=").append(delete);
+        sb.append(", isDelete=").append(isDelete);
         sb.append(", agentId=").append(agentId);
         sb.append(", describtion=").append(describtion);
         sb.append(", img=").append(img);
