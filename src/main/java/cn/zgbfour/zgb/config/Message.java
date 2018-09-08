@@ -48,6 +48,10 @@ public class Message {
     //redis中存放用户id的标识前缀
     public static final String CONTENT = "SYSTEM_USER";
 
+    //审核状态 0审核通过  1审核不通过  2未审核
+    public static final Integer REVIEWPASS=0;
+    public static final Integer REVIEWNOTPASS=1;
+    public static final Integer NOTREVIEW=2;
 
     //是否删除 存在为0 删除为1
     public static final Integer STATUS_DELETE = 1;

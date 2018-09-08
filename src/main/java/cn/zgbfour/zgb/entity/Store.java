@@ -11,7 +11,7 @@ public class Store implements Serializable {
 
     private Integer areaId;
 
-    private Integer iphone;
+    private String iphone;
 
     private String address;
 
@@ -53,12 +53,12 @@ public class Store implements Serializable {
         this.areaId = areaId;
     }
 
-    public Integer getIphone() {
+    public String getIphone() {
         return iphone;
     }
 
-    public void setIphone(Integer iphone) {
-        this.iphone = iphone;
+    public void setIphone(String iphone) {
+        this.iphone = iphone == null ? null : iphone.trim();
     }
 
     public String getAddress() {
