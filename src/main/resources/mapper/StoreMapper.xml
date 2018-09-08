@@ -6,7 +6,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="owner_id" jdbcType="INTEGER" property="ownerId" />
     <result column="area_id" jdbcType="INTEGER" property="areaId" />
-    <result column="iphone" jdbcType="INTEGER" property="iphone" />
+    <result column="iphone" jdbcType="VARCHAR" property="iphone" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="license" jdbcType="VARCHAR" property="license" />
     <result column="review_status" jdbcType="INTEGER" property="reviewStatus" />
@@ -113,7 +113,7 @@
       iphone, address, license, 
       review_status)
     values (#{name,jdbcType=VARCHAR}, #{ownerId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
-      #{iphone,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{license,jdbcType=VARCHAR}, 
+      #{iphone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{license,jdbcType=VARCHAR}, 
       #{reviewStatus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.zgbfour.zgb.entity.Store">
@@ -155,7 +155,7 @@
         #{areaId,jdbcType=INTEGER},
       </if>
       <if test="iphone != null">
-        #{iphone,jdbcType=INTEGER},
+        #{iphone,jdbcType=VARCHAR},
       </if>
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
@@ -190,7 +190,7 @@
         area_id = #{record.areaId,jdbcType=INTEGER},
       </if>
       <if test="record.iphone != null">
-        iphone = #{record.iphone,jdbcType=INTEGER},
+        iphone = #{record.iphone,jdbcType=VARCHAR},
       </if>
       <if test="record.address != null">
         address = #{record.address,jdbcType=VARCHAR},
@@ -212,7 +212,7 @@
       name = #{record.name,jdbcType=VARCHAR},
       owner_id = #{record.ownerId,jdbcType=INTEGER},
       area_id = #{record.areaId,jdbcType=INTEGER},
-      iphone = #{record.iphone,jdbcType=INTEGER},
+      iphone = #{record.iphone,jdbcType=VARCHAR},
       address = #{record.address,jdbcType=VARCHAR},
       license = #{record.license,jdbcType=VARCHAR},
       review_status = #{record.reviewStatus,jdbcType=INTEGER}
@@ -233,7 +233,7 @@
         area_id = #{areaId,jdbcType=INTEGER},
       </if>
       <if test="iphone != null">
-        iphone = #{iphone,jdbcType=INTEGER},
+        iphone = #{iphone,jdbcType=VARCHAR},
       </if>
       <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
@@ -252,7 +252,7 @@
     set name = #{name,jdbcType=VARCHAR},
       owner_id = #{ownerId,jdbcType=INTEGER},
       area_id = #{areaId,jdbcType=INTEGER},
-      iphone = #{iphone,jdbcType=INTEGER},
+      iphone = #{iphone,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       license = #{license,jdbcType=VARCHAR},
       review_status = #{reviewStatus,jdbcType=INTEGER}

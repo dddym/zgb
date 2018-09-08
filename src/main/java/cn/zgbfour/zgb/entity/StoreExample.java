@@ -387,52 +387,62 @@ public class StoreExample implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andIphoneEqualTo(Integer value) {
+        public Criteria andIphoneEqualTo(String value) {
             addCriterion("iphone =", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneNotEqualTo(Integer value) {
+        public Criteria andIphoneNotEqualTo(String value) {
             addCriterion("iphone <>", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneGreaterThan(Integer value) {
+        public Criteria andIphoneGreaterThan(String value) {
             addCriterion("iphone >", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIphoneGreaterThanOrEqualTo(String value) {
             addCriterion("iphone >=", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneLessThan(Integer value) {
+        public Criteria andIphoneLessThan(String value) {
             addCriterion("iphone <", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneLessThanOrEqualTo(Integer value) {
+        public Criteria andIphoneLessThanOrEqualTo(String value) {
             addCriterion("iphone <=", value, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneIn(List<Integer> values) {
+        public Criteria andIphoneLike(String value) {
+            addCriterion("iphone like", value, "iphone");
+            return (Criteria) this;
+        }
+
+        public Criteria andIphoneNotLike(String value) {
+            addCriterion("iphone not like", value, "iphone");
+            return (Criteria) this;
+        }
+
+        public Criteria andIphoneIn(List<String> values) {
             addCriterion("iphone in", values, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneNotIn(List<Integer> values) {
+        public Criteria andIphoneNotIn(List<String> values) {
             addCriterion("iphone not in", values, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneBetween(Integer value1, Integer value2) {
+        public Criteria andIphoneBetween(String value1, String value2) {
             addCriterion("iphone between", value1, value2, "iphone");
             return (Criteria) this;
         }
 
-        public Criteria andIphoneNotBetween(Integer value1, Integer value2) {
+        public Criteria andIphoneNotBetween(String value1, String value2) {
             addCriterion("iphone not between", value1, value2, "iphone");
             return (Criteria) this;
         }

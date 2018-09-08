@@ -48,4 +48,13 @@ public class ResultMsg {
     //参数为空
     public static final Integer PARAM_NULL_CODE=20005;
     public static final String PARAM_NULL_MSG="参数为空,请传入参数";
+    //审核不通过
+    public static final Integer REVIEW_NOTPASS_CODE=20006;
+    public static final String REVIEW_NOTPASS_MSG="审核不通过";
+    //未审核
+    public static final Integer NOT_REVIEW_CODE=20008;
+    public static final String NOT_REVIEW_MSG="暂未审核";
+    //未上传营业执照
+    public static final Integer REVIEW_NOTINPUT_CODE=20007;
+    public static final String REVIEW_NOTINPUT_MSG="未上传营业执照";
 }

@@ -2,7 +2,6 @@ package cn.zgbfour.zgb.service.impl;
 
 import cn.zgbfour.zgb.config.ResultMsg;
 import cn.zgbfour.zgb.dao.ProductMapper;
-import cn.zgbfour.zgb.entity.Category;
 import cn.zgbfour.zgb.entity.Product;
 import cn.zgbfour.zgb.entity.ProductExample;
 import cn.zgbfour.zgb.model.Result;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author:zhw
@@ -30,11 +28,12 @@ public class ProduceServiceImpl implements ProductService {
     }
 
     @Override
-    public Result<List<Product>> selectAllProductByCategory(Integer agentId) {
+    public Result<List<Product>> selectAllProductByCategory(Integer categoryId, Integer agentId) {
         try{
             ProductExample productExample = new ProductExample();
             ProductExample.Criteria criteria = productExample.createCriteria();
-            criteria.andCategoryIdEqualTo(agentId);
+            criteria.andCategoryIdEqualTo(categoryId);
+            criteria.andAgentIdEqualTo(agentId);
             List<Product> products = productMapper.selectByExample(productExample);
             return ResultUtil.success(products);
         }catch (Exception e){

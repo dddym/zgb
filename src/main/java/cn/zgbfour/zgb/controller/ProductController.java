@@ -40,7 +40,7 @@ public class ProductController {
             List<Category> Categories = listResult.getData();
             Map<Category, List<Product>> map = new HashMap<Category, List<Product>>();
             for (Category category:Categories) {
-                Result<List<Product>> listResult1 = productService.selectAllProductByCategory(category.getAgentId());
+                Result<List<Product>> listResult1 = productService.selectAllProductByCategory(category.getAgentId(),category.getCategoryId());
                 List<Product> data = listResult1.getData();
                 map.put(category,data);
             }
