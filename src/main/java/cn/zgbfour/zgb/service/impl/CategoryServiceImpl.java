@@ -86,8 +86,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Result updateByCategoryId(Category category) {
         try{
-            categoryMapper.updateByPrimaryKeySelective(category);
-            return ResultUtil.success();
+            if(category.getCategoryId()!=null&&category.getCategoryId()!=0){
+                categoryMapper.updateByPrimaryKeySelective(category);
+                return ResultUtil.success();
+            }
+            return ResultUtil.error(ResultMsg.CATEGORY_UPDATE_CODE,ResultMsg.CATEGORY_UPDATE_MSG);
         }catch (Exception e){
             return ResultUtil.error(ResultMsg.CATEGORY_UPDATE_CODE,ResultMsg.CATEGORY_UPDATE_MSG);
         }

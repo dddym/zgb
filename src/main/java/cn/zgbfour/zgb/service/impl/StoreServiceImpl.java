@@ -8,6 +8,7 @@ import cn.zgbfour.zgb.entity.StoreExample;
 import cn.zgbfour.zgb.model.Result;
 import cn.zgbfour.zgb.service.StoreService;
 import cn.zgbfour.zgb.utils.ResultUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +26,10 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Result insertStore(Store store) {
         try{
-            //审核状态默认为2，即未审核
-            store.setReviewStatus(Message.NOTREVIEW);
-            if(store.getLicense()!=null){
+
+            if(StringUtils.isNotBlank(store.getLicense())){
+                //审核状态默认为2，即未审核
+                store.setReviewStatus(Message.NOTREVIEW);
                 storeMapper.insertSelective(store);
                /* if (ReviewAgent(store)){
                     return ResultUtil.success();
@@ -63,9 +65,12 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Result updateStoreById(Store store) {
         try{
-            //审核通过0,审核不通过1
-            storeMapper.updateByPrimaryKey(store);
-            return ResultUtil.success();
+            if(store.getId()!=null&&store.getId()!=null){
+                //审核通过0,审核不通过1
+                storeMapper.updateByPrimaryKey(store);
+                return ResultUtil.success();
+            }
+            return  ResultUtil.error(ResultMsg.CATEGORY_UPDATE_CODE,ResultMsg.CATEGORY_UPDATE_MSG);
         }catch (Exception e){
             return  ResultUtil.error(ResultMsg.CATEGORY_UPDATE_CODE,ResultMsg.CATEGORY_UPDATE_MSG);
         }

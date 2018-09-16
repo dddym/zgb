@@ -47,6 +47,8 @@ public class Message {
 
     //redis中存放用户id的标识前缀
     public static final String CONTENT = "SYSTEM_USER";
+    //免费策略数
+    public static final Integer FREEPOLICYNUMBER=2;
 
     //审核状态 0审核通过  1审核不通过  2未审核
     public static final Integer REVIEWPASS=0;
